@@ -1,0 +1,71 @@
+html:has(body.reader) { height: 100%; }
+body.reader { display: grid; grid-template-columns: 285px minmax(0, 1fr); height: 100dvh; overflow: hidden; background: #dce1d4; font-family: Dana, sans-serif; }
+.reader button, .reader input, .reader select { font: inherit; }
+.reader button, .reader a, .reader select { touch-action: manipulation; }
+.reader button { cursor: pointer; }
+.reader button:focus-visible, .reader a:focus-visible, .reader input:focus-visible, .reader select:focus-visible, .reader summary:focus-visible { outline: 3px solid #88b841; outline-offset: 3px; }
+.reader-sidebar { background: #15200f; color: #cfdfbc; min-height: 0; display: flex; flex-direction: column; border-left: 1px solid #40512e; }
+.reader-brand { display: flex; align-items: center; gap: 13px; padding: 25px 22px; flex: none; border-bottom: 1px solid #40512e; font: 700 31px Morabba, sans-serif; line-height: 1.5; }
+.reader-brand small { display: block; font: 400 11px Dana, sans-serif; color: #8da376; margin-top: 5px; }
+.reader-sidebar-content { flex: 1; min-height: 0; overflow: auto; padding: 20px 16px; scrollbar-width: thin; scrollbar-color: #71895a #182410; }
+.reader-search { display: block; font-size: 12px; margin-bottom: 19px; color: #98ae81; }
+.reader-search input { width: 100%; font-size: 12px; padding: 12px; color: inherit; background: #1c2b14; border: 1px solid #495c34; border-radius: 8px; margin-top: 9px; }
+.reader-sidebar nav > a, .reader-menu-content nav > a { margin-bottom: 6px; }
+[data-reader-link] { display: flex; justify-content: space-between; align-items: start; gap: 10px; font-size: 12px; line-height: 1.9; padding: 9px 12px; border-radius: 7px; color: #bacda3; }
+[data-reader-link] small { color: #7c9561; font-size: 10px; flex: none; padding-top: 3px; }
+[data-reader-link]:hover { background: #263b19; color: #e3f5ce; }
+[data-reader-link][aria-current=page] { background: #b9e876; color: #193009; font-weight: 700; }
+[data-reader-link][aria-current=page] small { color: #466325; }
+.reader details { border-top: 1px solid #40512e; padding-block: 10px; }
+.reader summary { cursor: pointer; font: 700 18px Morabba, sans-serif; padding: 10px 5px; color: #d3e7bd; }
+.reader-website { padding: 18px; font-size: 12px; color: #a0b789; border-top: 1px solid #40512e; flex: none; }
+.reader-main { min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+.reader-toolbar { flex: none; background: #f1f3ec; display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 17px 24px; border-bottom: 1px solid #b7c3a8; color: #536a3d; }
+.reader-navigation, .reader-tools { display: flex; align-items: center; gap: 12px; font-size: 12px; }
+.reader-toolbar button { padding: 7px 12px; border: 1px solid #b9c7a9; border-radius: 7px; background: #e7eddd; color: #4b6534; }
+.reader-toolbar button:disabled { opacity: .4; cursor: default; }
+.page-number-label { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+.page-number-label input { width: 54px; font-size: 13px; text-align: center; padding: 7px 3px; border: 1px solid #b8c6a8; border-radius: 7px; background: #fff; color: #304e16; }
+.reader-tools label { display: flex; align-items: center; gap: 7px; }
+.reader-tools select { background: #e7eddd; color: #4b6534; border: 1px solid #b9c7a9; border-radius: 7px; font-size: 12px; padding: 7px; max-width: 150px; }
+.reader-tools a { font-size: 12px; border-bottom: 1px solid #8d9e79; padding-block: 6px; white-space: nowrap; }
+.reader-scroll { flex: 1; min-height: 0; min-width: 0; overflow: auto; padding: 24px; direction: ltr; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #859970 #dce1d4; scroll-behavior: smooth; }
+.reader-page-wrap { overflow: hidden; position: relative; width: var(--reader-width, 800px); height: var(--reader-height, 550px); margin: 0 auto 24px; flex: none; scroll-margin-top: 18px; box-shadow: 0 14px 40px #2532191a; }
+.reader .print-page { position: absolute; inset: 0 auto auto 0; transform: scale(var(--reader-scale, .5)); transform-origin: top left; direction: rtl; }
+.reader .print-page img { display: block; }
+.reader-status { display: flex; justify-content: space-between; gap: 15px; flex: none; padding: 10px 22px; background: #f0f3e9; border-top: 1px solid #c1cdb3; font-size: 10px; color: #7b9066; }
+#reader-menu-open { display: none; }
+.reader-no-results { font-size: 13px; padding: 18px 0; }
+#reader-menu { background: #15200f; color: #d3e7bd; padding: 0; border: 1px solid #52683b; border-radius: 14px; width: calc(100% - 24px); max-width: 450px; height: calc(100dvh - 24px); max-height: none; overflow: hidden; }
+#reader-menu[open] { display: flex; flex-direction: column; }
+#reader-menu::backdrop { background: #071004c9; backdrop-filter: blur(5px); }
+.reader-menu-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px; border-bottom: 1px solid #40512e; flex: none; }
+.reader-menu-top h2 { font-size: 27px; }
+.reader-menu-top button { border: 1px solid #52683b; border-radius: 7px; color: #d3e7bd; padding: 8px 13px; background: #263b19; }
+.reader-menu-content { min-height: 0; overflow: auto; padding: 20px; overscroll-behavior: contain; }
+.reader [hidden] { display: none !important; }
+@media (max-width: 1100px) {
+  body.reader { grid-template-columns: 250px minmax(0, 1fr); }
+  .reader-toolbar { padding: 13px; gap: 12px; flex-wrap: wrap; }
+  .reader-scroll { padding: 16px; }
+  .reader-tools { gap: 15px; }
+  .reader-tools label > select { max-width: 130px; }
+  .reader-status { font-size: 9px; padding: 8px 12px; }
+}
+@media (max-width: 760px) {
+  body.reader { display: block; }
+  .reader-sidebar { display: none; }
+  .reader-main { height: 100dvh; }
+  #reader-menu-open { display: block; font-size: 11px; }
+  .reader-toolbar { padding: 11px; gap: 10px; }
+  .reader-navigation { width: 100%; justify-content: space-between; gap: 5px; font-size: 11px; }
+  .reader-toolbar button { padding: 7px 10px; }
+  .reader-tools { width: 100%; justify-content: space-between; font-size: 11px; }
+  .reader-tools a, .reader-tools select { font-size: 11px; }
+  .reader-scroll { padding: 12px 8px; }
+  .reader-status { font-size: 9px; display: block; }
+  .reader-status span:last-child { display: none; }
+  .reader-page-wrap { margin-bottom: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .reader-scroll { scroll-behavior: auto; } }
+.reader-scroll { padding-bottom: var(--reader-end-space, 24px); }

@@ -1,0 +1,4 @@
+const dialog=document.querySelector('#image-dialog');let opener;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-image]');if(!b)return;opener=b;dialog.querySelector('img').src=b.dataset.image;dialog.querySelector('img').alt=b.dataset.title;dialog.querySelector('strong').textContent=b.dataset.title;dialog.showModal();});
+dialog?.querySelector('[data-close]').addEventListener('click',()=>dialog.close());dialog?.addEventListener('close',()=>opener?.focus());
+document.querySelector('#feature-search')?.addEventListener('input',e=>{const q=e.target.value.trim();let n=0;for(const card of document.querySelectorAll('.feature')){card.hidden=!card.textContent.includes(q);if(!card.hidden)n++;}for(const g of document.querySelectorAll('.group'))g.hidden=![...g.querySelectorAll('.feature')].some(c=>!c.hidden);document.querySelector('#search-count').textContent=n.toLocaleString('fa-IR')+' قابلیت';document.querySelector('.empty').hidden=n!==0;});

@@ -1,0 +1,6 @@
+Dana FaNum webfont, four existing local weights: Regular, Medium, DemiBold, Bold.
+Source: the owner's local MenoaProject/styles/fonts files.
+Added at the owner's explicit request on 2026-10-08; license documentation will be provided later by the owner.
+No font was fetched from a third-party download or included in an online release by this change.
+Preserve the supplied license alongside these files when the owner provides it.
+Vazirmatn remains the bundled fallback with its existing OFL license.
